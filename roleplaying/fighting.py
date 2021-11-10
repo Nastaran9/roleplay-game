@@ -9,20 +9,6 @@ import time
 def fight(player, enemy):
     go = True
     while go is True :
-        variance = player.attack * 0.3
-        Evariance = enemy.attack * 0.2
-        dmg = uniform(player.attack - variance, player.attack + variance)
-        Edmg = uniform(enemy.attack - Evariance, enemy.attack + Evariance)
-        print('dmg= {} *** dmg = {}'.format(dmg,Edmg))
-        enemy.health -= dmg
-        time.sleep(0.5)
-        mis = randint(1, 100)
-        if mis <= 5:
-            player.health = player.health
-        player.health -= Edmg
-        time.sleep(0.5)
-        if player.health > 0 and enemy.health > 0:
-            print('player.health=%d *** enemy.health=%d'%(player.health, enemy.health))
         if player.health <= 0:
             print('You have been slain by the enemy')
             print('.........................GAME OVER..........................')
@@ -38,7 +24,21 @@ def fight(player, enemy):
                 player.ex -= 100
             go = False
             time.sleep(3)
-
-
+        else:
+            variance = player.attack * 0.3
+            Evariance = enemy.attack * 0.2
+            dmg = uniform(player.attack - variance, player.attack + variance)
+            Edmg = uniform(enemy.attack - Evariance, enemy.attack + Evariance)
+            if player.health - Edmg > 0 and enemy.health - dmg > 0:
+                print('dmg= {} *** dmg = {}'.format(dmg,Edmg))
+            enemy.health -= dmg
+            time.sleep(0.5)
+            mis = randint(1, 100)
+            if mis <= 5:
+                player.health = player.health
+            player.health -= Edmg
+            time.sleep(0.5)
+            if player.health > 0 and enemy.health > 0:
+                print('player.health=%d *** enemy.health=%d'%(player.health, enemy.health))
 if __name__ == '__main__':
     fight(player, enemy)
