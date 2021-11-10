@@ -3,7 +3,7 @@
 
 class Enemy:
     def __init__(self, level):
-        self.health = 50+(level*5)
+        self.health = 70+(level*5)
         self.attack = 3+(level*2)
 
 
