@@ -4,7 +4,7 @@ class Human:
     def __init__(self):
         self.health = 100
         self.attack = 10
-        self.level=1
+        self.level = 1
         self.ex = 0
 
 
@@ -14,6 +14,7 @@ class Warrior(Human):
         self.health += 15
         self.attack += 3
         self.name = 'Warrior'
+
 
 class Solider(Human):
     def __init__(self):

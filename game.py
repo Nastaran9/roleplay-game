@@ -7,12 +7,15 @@ import players
 import enemys
 from mechanism import fighting
 from mechanism import leveling
-
 import time
 
 
 def get_player():
-    selection = int(input('which class do you want to be?\n1.warrior\n2.solider\n3.potent\nEnter a value:'))
+    print('which class do you want to be?')
+    print('1.warrior')
+    print('2.solider')
+    print('3.potent')
+    selection = int(input('Enter a value:'))
     if selection == 1:
         player = players.Warrior()
     elif selection == 2:
@@ -28,16 +31,13 @@ def game_loop(player):
         time.sleep(0.5)
         print('1.play\n2.Exit')
         play = int(input('Enter a value: '))
-        
-        
         if play == 1:
             enemy = enemys.Invader(player.level)
             fighting.fight(player, enemy)
             print('The level of enemy is {}'.format(player.level))
         elif play == 2:
-            print('..........................Bye,Have a nice time..........................')
+            print('...................Bye,Have a nice time...................')
             break
-
 
 
 def main():

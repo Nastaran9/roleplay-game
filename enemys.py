@@ -12,4 +12,3 @@ class Invader(Enemy):
         super().__init__(level)
         self.health += 5
         self.attack += 4
-

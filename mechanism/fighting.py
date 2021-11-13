@@ -6,12 +6,13 @@ from random import uniform
 import time
 from . import leveling
 
+
 def fight(player, enemy):
     go = True
-    while go is True :
+    while go is True:
         if player.health <= 0:
             print('You have been slain by the enemy')
-            print('.........................GAME OVER..........................')
+            print('...................GAME OVER....................')
             go = False
             time.sleep(3)
         elif enemy.health <= 0:
@@ -29,7 +30,7 @@ def fight(player, enemy):
             dmg = uniform(player.attack - variance, player.attack + variance)
             Edmg = uniform(enemy.attack - Evariance, enemy.attack + Evariance)
             if player.health - Edmg > 0 and enemy.health - dmg > 0:
-                print('dmg= {} *** dmg = {}'.format(dmg,Edmg))
+                print('dmg= {} *** dmg = {}'.format(dmg, Edmg))
             enemy.health -= dmg
             time.sleep(0.5)
             mis = randint(1, 100)
@@ -38,4 +39,4 @@ def fight(player, enemy):
             player.health -= Edmg
             time.sleep(0.5)
             if player.health > 0 and enemy.health > 0:
-                print('player.health=%d *** enemy.health=%d'%(player.health, enemy.health))
+                print('player.health={} * enemy.health={}'.format(player.health, enemy.health))
