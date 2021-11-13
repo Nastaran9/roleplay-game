@@ -4,7 +4,7 @@
 from random import randint
 from random import uniform
 import time
-
+from . import leveling
 
 def fight(player, enemy):
     go = True
@@ -16,12 +16,11 @@ def fight(player, enemy):
             time.sleep(3)
         elif enemy.health <= 0:
             print('You have slain the enemy')
-            player.health = 100
             player.ex += 50
             if player.ex >= 100:
-                player.level += 1
-                player.attack += 8
+                leveling.levelup(player)
                 player.ex -= 100
+            player.health = 100
             go = False
             time.sleep(3)
         else:
@@ -40,5 +39,3 @@ def fight(player, enemy):
             time.sleep(0.5)
             if player.health > 0 and enemy.health > 0:
                 print('player.health=%d *** enemy.health=%d'%(player.health, enemy.health))
-if __name__ == '__main__':
-    fight(player, enemy)

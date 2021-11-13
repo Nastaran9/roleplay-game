@@ -13,13 +13,14 @@ class Warrior(Human):
         super().__init__()
         self.health += 15
         self.attack += 3
-
+        self.name = 'Warrior'
 
 class Solider(Human):
     def __init__(self):
         super().__init__()
         self.health += 10
         self.attack -= 3
+        self.name = 'Solider'
 
 
 class Potent(Human):
@@ -27,4 +28,4 @@ class Potent(Human):
         super().__init__()
         self.health += 20
         self.attack += 2
-
+        self.name = 'Potent'
